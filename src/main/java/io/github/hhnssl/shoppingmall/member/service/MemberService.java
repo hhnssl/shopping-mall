@@ -24,7 +24,8 @@ public class MemberService {
             throw new BusinessException(ErrorCode.EMAIL_DUPLICATION);
         }
 
-        Member member = request.toEntity();
+        Member member = Member.register(request.email(), request.username(), request.password());
+
         Member saved = memberRepository.save(member);
 
         return MemberResponse.from(saved);

@@ -23,8 +23,4 @@ public record MemberCreateReq(
     )
     String password
 ) {
-
-    public Member toEntity() {
-        return Member.register(this.email, this.username, this.password);
-    }
 }
